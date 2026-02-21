@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="UI Kit de componentes Club Maktub.">
+  <meta name="keywords" content="Club Maktub, UI Kit, componentes">
+  <meta name="author" content="Club Maktub">
+  <title>Club Maktub | UI Kit</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <main class="mk-ui-kit">
+    <section class="mk-ui-section">
+      <h1 class="mk-ui-section__title">UI Kit - Club Maktub</h1>
+      <p class="mk-meta">Componentes reutilizables y estados principales.</p>
+    </section>
+
+    <section class="mk-ui-section">
+      <h2 class="mk-ui-section__title">Botones</h2>
+      <button class="mk-btn" type="button">Primario</button>
+      <button class="mk-btn mk-btn--outline" type="button">Outline</button>
+      <button class="mk-btn" type="button" disabled>Deshabilitado</button>
+    </section>
+
+    <section class="mk-ui-section">
+      <h2 class="mk-ui-section__title">Inputs</h2>
+      <div class="mk-field">
+        <label class="mk-field__label" for="kitName">Nombre</label>
+        <input class="mk-field__input" id="kitName" type="text" placeholder="Nombre completo">
+      </div>
+      <div class="mk-field mk-field--error">
+        <label class="mk-field__label" for="kitEmail">Correo</label>
+        <input class="mk-field__input" id="kitEmail" type="email" placeholder="tu@correo.com">
+        <small class="mk-field__error mk-field__error--show">Ingresa un correo válido.</small>
+      </div>
+      <div class="mk-field">
+        <label class="mk-field__label" for="kitPassword">Contraseña</label>
+        <div class="mk-input-icon">
+          <input class="mk-field__input" id="kitPassword" type="password" placeholder="********">
+          <button class="mk-input-icon__button" type="button" aria-label="Mostrar contraseña">
+            <i class="bi bi-eye"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="mk-ui-section">
+      <h2 class="mk-ui-section__title">Stepper</h2>
+      <div class="mk-stepper">
+        <div class="mk-stepper__item">
+          <div class="mk-stepper__circle mk-stepper__circle--done"><i class="bi bi-check-lg"></i></div>
+          <span class="mk-stepper__line mk-stepper__line--done"></span>
+        </div>
+        <div class="mk-stepper__item">
+          <div class="mk-stepper__circle mk-stepper__circle--active">2</div>
+          <span class="mk-stepper__line"></span>
+        </div>
+        <div class="mk-stepper__item">
+          <div class="mk-stepper__circle">3</div>
+        </div>
+      </div>
+      <div class="mk-stepper__labels">
+        <span>Paso 1</span>
+        <span class="mk-stepper__label--active">Paso 2</span>
+        <span>Paso 3</span>
+      </div>
+    </section>
+
+    <section class="mk-ui-section">
+      <h2 class="mk-ui-section__title">PIN</h2>
+      <div class="mk-pin" data-mk-pin>
+        <input class="mk-pin__input" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 1">
+        <input class="mk-pin__input" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 2">
+        <input class="mk-pin__input" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 3">
+        <input class="mk-pin__input" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 4">
+        <input class="mk-pin__input" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 5">
+        <input class="mk-pin__input" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 6">
+      </div>
+    </section>
+
+    <section class="mk-ui-section">
+      <h2 class="mk-ui-section__title">Plan card</h2>
+      <article class="mk-plan-card mk-plan-card--selected">
+        <div class="mk-plan-card__badge"><i class="bi bi-star-fill"></i> Recomendada</div>
+        <img class="mk-plan-card__image" src="assets/img/card-elite.png" alt="Membresía Elite">
+        <div class="mk-plan-card__info">
+          <h3 class="mk-plan-card__title">Membresía Elite</h3>
+          <p class="mk-plan-card__subtitle">Acceso exclusivo</p>
+          <p class="mk-plan-card__text">Esta membresía te brinda los beneficios de la membresía.</p>
+          <p class="mk-plan-card__price">500 USDT</p>
+          <div class="mk-plan-card__actions">
+            <button class="mk-btn" type="button">Seleccionada</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="mk-ui-section">
+      <h2 class="mk-ui-section__title">Token y checklist</h2>
+      <div class="mk-token">
+        <span class="mk-token__text">TBgHrqWXsYyQ2C9UF9JPhmxt1JtH8AQFfX</span>
+        <button class="mk-token__button" type="button"><i class="bi bi-clipboard"></i></button>
+      </div>
+      <div class="mk-list">
+        <div class="mk-list__item"><i class="bi bi-check-circle-fill mk-list__icon"></i><span>Enviar únicamente USDT (TRC20) a esta dirección.</span></div>
+        <div class="mk-list__item"><i class="bi bi-check-circle-fill mk-list__icon"></i><span>No guarde ninguna dirección de depósito.</span></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

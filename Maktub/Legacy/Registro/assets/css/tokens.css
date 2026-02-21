@@ -1,0 +1,117 @@
+@import url('https://fonts.cdnfonts.com/css/satoshi');
+
+:root {
+  /* Tipografia */
+  --mk-font-family-base: 'Satoshi', sans-serif;
+  --mk-font-weight-regular: 400;
+  --mk-font-weight-medium: 500;
+  --mk-font-weight-bold: 700;
+
+  /* Escala tipografica */
+  --mk-fs-12: 12px;
+  --mk-fs-14: 14px;
+  --mk-fs-16: 16px;
+  --mk-fs-18: 18px;
+  --mk-fs-20: 20px;
+  --mk-fs-24: 24px;
+  --mk-fs-32: 32px;
+  --mk-fs-48: 48px;
+  --mk-fs-52: 52px;
+  --mk-fs-60: 60px;
+
+  --mk-lh-16: 16px;
+  --mk-lh-20: 20px;
+  --mk-lh-21: 21px;
+  --mk-lh-24: 24px;
+  --mk-lh-28: 28px;
+  --mk-lh-32: 32px;
+  --mk-lh-62: 62px;
+  --mk-lh-72: 72px;
+
+  /* Espaciados */
+  --mk-space-1: 4px;
+  --mk-space-2: 8px;
+  --mk-space-3: 12px;
+  --mk-space-4: 16px;
+  --mk-space-5: 20px;
+  --mk-space-6: 24px;
+  --mk-space-7: 28px;
+  --mk-space-8: 32px;
+  --mk-space-10: 40px;
+  --mk-space-12: 48px;
+  --mk-space-16: 64px;
+
+  /* Padding */
+  --mk-input-padding-x: 17px;
+  --mk-input-icon-padding-right: 44px;
+
+  /* Border radius */
+  --mk-radius-10: 10px;
+  --mk-radius-12: 12px;
+  --mk-radius-16: 16px;
+  --mk-radius-24: 24px;
+  --mk-radius-pill: 9999px;
+
+  /* Colores */
+  --mk-color-primary: #00a1e0;
+  --mk-color-primary-hover: #1c73b8;
+  --mk-color-text: #0f172a;
+  --mk-color-muted: #6b7280;
+  --mk-color-border: #d1d5db;
+  --mk-color-border-strong: #b3b3b3;
+  --mk-color-placeholder: #9aa3af;
+  --mk-color-bg: #ffffff;
+  --mk-color-soft: #f5f5f5;
+  --mk-color-on-primary: #ffffff;
+  --mk-color-panel-bg: #0b1b2f;
+  --mk-color-on-dark: #f3f3f3;
+  --mk-color-on-dark-muted: #f5f5f5;
+  --mk-color-line: #e5e7eb;
+  --mk-color-border-light: #d9d9d9;
+  --mk-color-divider: #757575;
+  --mk-color-heading-secondary: #303030;
+  --mk-color-text-secondary: #5a5a5a;
+  --mk-color-body: #1e1e1e;
+  --mk-color-amount: #06090e;
+  --mk-color-link-accent: #2290ff;
+  --mk-color-warning-bg: #e8b931;
+  --mk-color-warning-text: #975102;
+  --mk-color-success: #22c55e;
+  --mk-color-error: #ef4444;
+  --mk-color-primary-soft: #f0fbff;
+  --mk-color-disabled: #cbd5e1;
+  --mk-color-focus: rgba(0, 161, 224, 0.15);
+  --mk-color-scrim: rgba(255, 255, 255, 0.8);
+  --mk-color-border-soft: rgba(0, 0, 0, 0.04);
+  --mk-color-overlay-start: rgba(255, 255, 255, 0.25);
+  --mk-color-overlay-end: rgba(0, 0, 0, 0.75);
+  --mk-color-divider-soft: rgba(245, 250, 255, 0.2);
+
+  /* Layout */
+  --mk-panel-width: 551px;
+  --mk-content-max: 730px;
+  --mk-form-width: 432px;
+  --mk-container-max: 1200px;
+  --mk-plan-card-width: 611px;
+
+  --mk-input-height: 52px;
+  --mk-button-height: 48px;
+  --mk-button-height-lg: 56px;
+  --mk-stepper-size: 32px;
+  --mk-stepper-line: 48px;
+  --mk-pin-size: 80px;
+  --mk-pin-height: 77px;
+  --mk-plan-button-width: 227px;
+  --mk-plan-button-height: 44px;
+  --mk-qr-size: 256px;
+  --mk-stepper-label-gap: 27px;
+  --mk-icon-size-lg: 28px;
+  --mk-plan-image-width: 198px;
+  --mk-plan-image-height: 304px;
+
+  /* Sombras */
+  --mk-shadow-card: 0 3px 22px rgba(0, 0, 0, 0.1);
+
+  /* Transiciones */
+  --mk-transition-base: 0.2s ease;
+}

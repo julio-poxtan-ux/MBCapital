@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Realiza tu pago en USDT para completar la compra.">
+  <meta name="keywords" content="Club Maktub, pago, USDT, QR">
+  <meta name="author" content="Club Maktub">
+  <meta property="og:title" content="Club Maktub | Realizar pago">
+  <meta property="og:description" content="Envía el monto en USDT para completar tu compra.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/club-bg.png">
+  <title>Club Maktub | Realizar pago</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="mk-page">
+    <main class="mk-auth">
+      <aside class="mk-auth__panel" aria-hidden="true">
+        <div class="mk-auth__panel-content">
+          <div class="mk-panel__brand">
+            <i class="bi bi-record-circle mk-panel__brand-icon"></i>
+            <span>Club Maktub</span>
+          </div>
+          <div>
+            <h1 class="mk-panel__title">Bienvenidos<br>a Club Maktub</h1>
+            <p class="mk-panel__text">Nuestro propósito es conectarte con las nuevas tecnologías y acompañarte en la expansión de tu capital.</p>
+          </div>
+        </div>
+      </aside>
+
+      <section class="mk-auth__content">
+        <div class="mk-auth__top">
+          <div class="mk-stepper" aria-label="Progreso">
+            <div class="mk-stepper__item">
+              <div class="mk-stepper__circle mk-stepper__circle--done"><i class="bi bi-check-lg"></i></div>
+              <span class="mk-stepper__line mk-stepper__line--done"></span>
+            </div>
+            <div class="mk-stepper__item">
+              <div class="mk-stepper__circle mk-stepper__circle--done"><i class="bi bi-check-lg"></i></div>
+              <span class="mk-stepper__line mk-stepper__line--done"></span>
+            </div>
+            <div class="mk-stepper__item">
+              <div class="mk-stepper__circle mk-stepper__circle--active">3</div>
+            </div>
+          </div>
+          <div class="mk-stepper__labels">
+            <span>Verifica tu cuenta</span>
+            <span>Confirma PIN</span>
+            <span class="mk-stepper__label--active">Realiza tu pago</span>
+          </div>
+        </div>
+
+        <div class="mk-auth__top">
+          <h2 class="mk-heading">Realizar pago</h2>
+          <p class="mk-subheading">Envía el monto en <strong>USDT {(TRC20)}</strong> <br>a la dirección indicada para completar tu compra.</p>
+          <div class="mk-divider"></div>
+        </div>
+
+        <div class="mk-payment">
+          <div class="mk-amount">
+            <img src="assets/img/usdt.svg" alt="USDT" width="42" height="42">
+            <span class="mk-amount__value">500 USDT</span>
+          </div>
+
+          <img class="mk-qr" src="assets/img/QR-code.svg" alt="Código QR de pago" width="256" height="256">
+
+          <div class="mk-field">
+            <label class="mk-field__label">Token</label>
+            <div class="mk-token">
+              <span class="mk-token__text" id="mkTokenText">{TBgHrqWXsYyQ2C9UF9JPhmxt1JtH8AQFfX}</span>
+              <button class="mk-token__button" type="button" data-mk-copy="#mkTokenText" aria-label="Copiar token">
+                <i class="bi bi-clipboard"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="mk-list">
+            <div class="mk-list__item">
+              <i class="bi bi-check-circle-fill mk-list__icon"></i>
+              <span>Enviar únicamente USDT {(TRC20)} a esta dirección.</span>
+            </div>
+            <div class="mk-list__item">
+              <i class="bi bi-check-circle-fill mk-list__icon"></i>
+              <span>Si envía otra criptomoneda que no sea USDT (en la red TRC20), sus fondos se extraviarán.</span>
+            </div>
+            <div class="mk-list__item">
+              <i class="bi bi-check-circle-fill mk-list__icon"></i>
+              <span>No guarde ninguna dirección de depósito, porque se renuevan con cada intento.</span>
+            </div>
+          </div>
+
+          <div class="mk-spinner" aria-live="polite">
+            <i class="bi bi-arrow-repeat mk-spinner__icon"></i>
+            <span>En espera del deposito</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

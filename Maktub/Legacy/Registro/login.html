@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Inicia sesión en Club Maktub.">
+  <meta name="keywords" content="Club Maktub, login, acceso">
+  <meta name="author" content="Club Maktub">
+  <meta property="og:title" content="Club Maktub | Inicia sesión">
+  <meta property="og:description" content="Accede a tu cuenta Club Maktub.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/club-bg.png">
+  <title>Club Maktub | Inicia sesión</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="mk-page">
+    <main class="mk-auth">
+      <aside class="mk-auth__panel" aria-hidden="true">
+        <div class="mk-auth__panel-content">
+          <div class="mk-panel__brand">
+            <i class="bi bi-record-circle mk-panel__brand-icon"></i>
+            <span>Club Maktub</span>
+          </div>
+          <div>
+            <h1 class="mk-panel__title">Bienvenidos<br>a Club Maktub</h1>
+            <p class="mk-panel__text">Nuestro propósito es conectarte con las nuevas tecnologías y acompañarte en la expansión de tu capital.</p>
+          </div>
+        </div>
+      </aside>
+
+      <section class="mk-auth__content">
+        <div class="mk-auth__top">
+          <h2 class="mk-heading">Inicia sesión</h2>
+          <p class="mk-meta">Accede con tus credenciales para continuar.</p>
+        </div>
+
+        <form class="mk-form" data-mk-validate>
+          <div class="mk-field">
+            <label class="mk-field__label" for="loginEmail">Dirección de correo</label>
+            <input class="mk-field__input" type="email" id="loginEmail" name="loginEmail" placeholder="tu@correo.com" required>
+            <small class="mk-field__error">Ingresa un correo válido.</small>
+          </div>
+
+          <div class="mk-field">
+            <label class="mk-field__label" for="loginPassword">Contraseña</label>
+            <div class="mk-input-icon">
+              <input class="mk-field__input" type="password" id="loginPassword" name="loginPassword" placeholder="********" required>
+              <button class="mk-input-icon__button" type="button" aria-label="Mostrar contraseña" aria-controls="loginPassword" data-mk-toggle="password">
+                <i class="bi bi-eye"></i>
+              </button>
+            </div>
+            <small class="mk-field__error">Ingresa tu contraseña.</small>
+          </div>
+
+          <button class="mk-btn" type="submit">Iniciar sesión</button>
+        </form>
+
+        <div class="mk-auth__notes">
+          <p class="mk-form__note"><a class="mk-link" href="PassReset.html">¿Olvidaste tu contraseña?</a></p>
+          <p class="mk-form__note">¿No tienes cuenta? <a class="mk-link" href="index.html">Regístrate</a></p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

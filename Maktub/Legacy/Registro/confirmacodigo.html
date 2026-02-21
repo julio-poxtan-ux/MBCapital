@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Confirma tu código de verificación para continuar el registro.">
+  <meta name="keywords" content="Club Maktub, confirmación, código, PIN">
+  <meta name="author" content="Club Maktub">
+  <meta property="og:title" content="Club Maktub | Confirma tu código">
+  <meta property="og:description" content="Ingresa el código enviado a tu correo electrónico.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/club-bg.png">
+  <title>Club Maktub | Confirma tu código</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="mk-page">
+    <main class="mk-auth">
+      <aside class="mk-auth__panel" aria-hidden="true">
+        <div class="mk-auth__panel-content">
+          <div class="mk-panel__brand">
+            <i class="bi bi-record-circle mk-panel__brand-icon"></i>
+            <span>Club Maktub</span>
+          </div>
+          <div>
+            <h1 class="mk-panel__title">Construye tu patrimonio</h1>
+            <p class="mk-panel__text">Nuestro propósito es brindarte conocimiento para la toma de decisiones inteligentes y responsables al invertir mediante herramientas y estrategias exclusivas.</p>
+          </div>
+        </div>
+      </aside>
+
+      <section class="mk-auth__content">
+        <div class="mk-auth__top">
+          <div class="mk-stepper" aria-label="Progreso">
+            <div class="mk-stepper__item">
+              <div class="mk-stepper__circle mk-stepper__circle--done"><i class="bi bi-check-lg"></i></div>
+              <span class="mk-stepper__line mk-stepper__line--done"></span>
+            </div>
+            <div class="mk-stepper__item">
+              <div class="mk-stepper__circle mk-stepper__circle--active">2</div>
+              <span class="mk-stepper__line"></span>
+            </div>
+            <div class="mk-stepper__item">
+              <div class="mk-stepper__circle">3</div>
+            </div>
+          </div>
+          <div class="mk-stepper__labels">
+            <span>Verifica tu cuenta</span>
+            <span class="mk-stepper__label--active">Confirma PIN</span>
+            <span>Completa tu registro</span>
+          </div>
+        </div>
+
+        <div class="mk-auth__top">
+          <h2 class="mk-heading">Confirma tu código de verificación</h2>
+          <p class="mk-meta">ID de patrocinador: <strong>0000</strong></p>
+        </div>
+
+        <form class="mk-form" data-mk-validate>
+          <div class="mk-field">
+            <div class="mk-pin" data-mk-pin>
+              <input class="mk-pin__input" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 1" required>
+              <input class="mk-pin__input" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 2" required>
+              <input class="mk-pin__input" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 3" required>
+              <input class="mk-pin__input" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 4" required>
+              <input class="mk-pin__input" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 5" required>
+              <input class="mk-pin__input" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 6" required>
+            </div>
+            <small class="mk-field__error">Completa el código.</small>
+          </div>
+
+          <button class="mk-btn" type="submit">Verificar código</button>
+        </form>
+
+        <div class="mk-auth__notes">
+          <p class="mk-form__note">Le enviaremos un mensaje para verificar su dirección de correo electrónico.</p>
+          <p class="mk-form__note">¿Ya tienes cuenta? <a class="mk-link" href="login.html">Inicia sesión</a></p>
+          <p class="mk-footer">© 2026 Club Maktub</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
