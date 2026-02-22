@@ -1,4 +1,4 @@
-# Landing - Desarrollos UX UI (Bootstrap 5.x)
+# Landing - Desarrollos UX UI 
 
 ## Nota sobre Bootstrap
 Bootstrap 5.3.x 
