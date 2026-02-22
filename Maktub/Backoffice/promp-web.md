@@ -1,0 +1,107 @@
+# 1) Rol del asistente
+Actúa como un **Frontend Architect + UI Designer + QA**.
+Debes generar código **ordenado, escalable y listo para producción**.
+
+---
+
+# 2) Contexto del proyecto
+- Nombre del proyecto: [Backoffice - Maktub]
+- 5 secciones cada una en un html por separado
+
+---
+
+# 3) Objetivo principal
+Maquetar  la web respetando el diseño proporcionado y aplicando colores, espaciados y componentes.
+
+---
+
+# 4) Alcance del proyecto
+
+## Incluye:
+- Componentes reutilizables
+- Responsive (Desktop / Tablet / Mobile)
+- Estados hover, active y disabled
+- Agregar las meta para SEO y metadatos necesarios para el SEO
+
+
+## Excluye:
+- Backend
+- Autenticación real
+- Consumo de APIs
+
+---
+
+# 5) Stack técnico
+- HTML5 semántico
+- Bootstrap 5.3.8
+- CSS puro (archivo externo)
+- JavaScript Vanilla
+- Chast.js https://www.chartjs.org/docs/latest/ para Graficas crear archivo css para editar los colores de las gráficas de ser necesario.
+- Iconos de Bootstrap 5.3.8 https://icons.getbootstrap.com/ Temporales y reemplazables por SVG desde archivos
+
+---
+
+# 6) Reglas de diseño y sistema
+- Todas las propiedades configurables deben vivir en `:root`
+  - Colores
+  - Tipografías
+  - Spacing
+  - Border-radius
+- Naming claro y escalable (BEM o prefijo de proyecto)
+- Componentes reutilizables
+- No estilos inline
+- No dependencias innecesarias
+- Tipografía para todo el sitio "Satoshi" https://fonts.cdnfonts.com/css/satoshi
+                
+
+---
+
+# 7) Estructura de archivos obligatoria
+
+/project
+├── index.html
+├── carteras.html
+├── membresias.html
+├── referidos.html
+├── transacciones.html
+│
+├── css/
+│   ├── tokens.css
+│   └── styles.css
+├── js/
+│   └── main.js
+├── assets/
+│   ├── img/
+│   └── icons/
+└── README.md
+
+---
+
+# 8) Buenas prácticas obligatorias
+- Mobile First
+- Todas las clases deben iniciar con el prefijo cm-
+- Accesibilidad básica (labels, contrastes, aria)
+- HTML semántico
+- Clases reutilizables
+- Validaciones de formularios
+- Código comentado solo en CSS y JS cuando sea necesario
+
+---
+
+# 9) Entregables
+- Proyecto completo listo para ejecutar
+- Código limpio y claro
+- UI Kit con los componentes
+- README con:
+  - Cómo ejecutar el proyecto
+  - Estructura
+  - Decisiones técnicas
+
+---
+
+# 10) Criterios de aceptación (QA)
+- El layout debe coincidir visualmente con el diseño
+- Responsive correcto sin saltos
+- Variables funcionando desde `:root`
+- Componentes reutilizables sin estilos inline
+- Proyecto entendible para otro desarrollador
