@@ -10,6 +10,7 @@ Implementación frontend del backoffice con enfoque en componentes reutilizables
    - `index.html`
    - `carteras.html`
    - `membresias.html`
+   - `perfil.html`
    - `referidos.html`
    - `transacciones.html`
 
@@ -20,6 +21,7 @@ Implementación frontend del backoffice con enfoque en componentes reutilizables
 ├── index.html
 ├── carteras.html
 ├── membresias.html
+├── perfil.html
 ├── referidos.html
 ├── transacciones.html
 ├── css/

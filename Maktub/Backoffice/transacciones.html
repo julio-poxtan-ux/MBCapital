@@ -30,7 +30,7 @@
     <header class="cm-topbar" role="banner">
       <div class="cm-topbar__shell">
         <a class="cm-topbar__brand" href="index.html" aria-label="Maktub Club">
-          <img class="cm-brand-logo" src="https://www.figma.com/api/mcp/asset/4c6e3603-154a-463c-a2cb-07da2c876f3e" alt="CM">
+          <img class="cm-brand-logo" src="assets/img/logo.png" alt="CM">
         </a>
 
         <button class="cm-topbar__toggle" type="button" data-cm-menu-toggle aria-expanded="false" aria-controls="cm-main-nav" aria-label="Abrir menú">
@@ -46,9 +46,26 @@
           <a class="cm-nav-link cm-nav-link--defi" href="#" aria-label="Maktub DeFi"><span class="cm-nav-link__icon" aria-hidden="true"></span><span>Maktub DeFi</span></a>
         </nav>
 
-        <button class="cm-topbar__user" type="button" aria-label="Perfil de usuario">
-          <i class="cm-topbar__user-icon bi bi-person"></i>
-        </button>
+        <div class="cm-topbar__user-menu" data-cm-user-menu>
+          <button class="cm-topbar__user" type="button" aria-label="Abrir menú de usuario" aria-expanded="false" aria-haspopup="menu" aria-controls="cm-user-menu-panel" data-cm-user-menu-toggle>
+            <i class="cm-topbar__user-icon bi bi-person"></i>
+          </button>
+          <div id="cm-user-menu-panel" class="cm-user-menu" role="menu" aria-label="Opciones de usuario" data-cm-user-menu-panel hidden>
+            <a class="cm-user-menu__item" href="perfil.html" role="menuitem">
+              <span class="cm-user-menu__icon" aria-hidden="true">
+                <img src="assets/figma/0593dfecd25a4407ce26fa48f5426a0b80e2885b.svg" alt="">
+              </span>
+              <span class="cm-user-menu__label">Perfil</span>
+            </a>
+            <span class="cm-user-menu__separator" aria-hidden="true"></span>
+            <button class="cm-user-menu__item cm-user-menu__item--button" type="button" role="menuitem" data-cm-user-menu-close>
+              <span class="cm-user-menu__icon" aria-hidden="true">
+                <img src="assets/figma/b7a306d69fd84e57343ad8d74441d21e87445893.svg" alt="">
+              </span>
+              <span class="cm-user-menu__label">Cerrar sesión</span>
+            </button>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -196,7 +213,7 @@
     </main>
 
     <footer class="cm-footer">
-      © 2026 Backoffice Maktub. Módulo de gestión de transacciones.
+      © 2026 Backoffice Maktub v.2.0
     </footer>
   </div>
 

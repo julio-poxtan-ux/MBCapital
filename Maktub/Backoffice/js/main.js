@@ -1,7 +1,10 @@
 (function initCmBackoffice() {
   initMenuToggle();
+  initUserMenu();
+  initLogoutModal();
   initCurrentNav();
   initWalletModule();
+  initProfilePhotoUpload();
   initCopyButtons();
   initTransactionsModule();
   initForms();
@@ -37,6 +40,235 @@
     });
   }
 
+  function initUserMenu() {
+    const menuWrappers = Array.from(document.querySelectorAll("[data-cm-user-menu]"));
+
+    if (!menuWrappers.length) {
+      return;
+    }
+
+    menuWrappers.forEach((wrapper, index) => {
+      const toggle = wrapper.querySelector("[data-cm-user-menu-toggle]");
+      const panel = wrapper.querySelector("[data-cm-user-menu-panel]");
+
+      if (!(toggle instanceof HTMLButtonElement) || !(panel instanceof HTMLElement)) {
+        return;
+      }
+
+      if (!panel.id) {
+        panel.id = `cm-user-menu-panel-${index + 1}`;
+      }
+
+      toggle.setAttribute("aria-controls", panel.id);
+
+      const closeMenu = () => {
+        panel.hidden = true;
+        toggle.setAttribute("aria-expanded", "false");
+        wrapper.classList.remove("cm-is-open");
+      };
+
+      const openMenu = () => {
+        panel.hidden = false;
+        toggle.setAttribute("aria-expanded", "true");
+        wrapper.classList.add("cm-is-open");
+      };
+
+      toggle.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const shouldOpen = panel.hidden;
+
+        menuWrappers.forEach((otherWrapper) => {
+          if (otherWrapper === wrapper) {
+            return;
+          }
+
+          const otherToggle = otherWrapper.querySelector("[data-cm-user-menu-toggle]");
+          const otherPanel = otherWrapper.querySelector("[data-cm-user-menu-panel]");
+
+          if (!(otherToggle instanceof HTMLButtonElement) || !(otherPanel instanceof HTMLElement)) {
+            return;
+          }
+
+          otherPanel.hidden = true;
+          otherToggle.setAttribute("aria-expanded", "false");
+          otherWrapper.classList.remove("cm-is-open");
+        });
+
+        if (shouldOpen) {
+          openMenu();
+        } else {
+          closeMenu();
+        }
+      });
+
+      wrapper.querySelectorAll("[data-cm-user-menu-close]").forEach((closeTrigger) => {
+        closeTrigger.addEventListener("click", (event) => {
+          event.preventDefault();
+          closeMenu();
+        });
+      });
+
+      wrapper.querySelectorAll("a[role='menuitem']").forEach((menuLink) => {
+        menuLink.addEventListener("click", () => {
+          closeMenu();
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+        if (!(target instanceof Node)) {
+          return;
+        }
+
+        if (!wrapper.contains(target)) {
+          closeMenu();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeMenu();
+        }
+      });
+    });
+  }
+
+  function initLogoutModal() {
+    const logoutTriggers = Array.from(document.querySelectorAll("[data-cm-user-menu-close]"));
+
+    if (!logoutTriggers.length) {
+      return;
+    }
+
+    const modal = ensureLogoutModal();
+    const closeButton = modal.querySelector("[data-cm-logout-close]");
+    const cancelButton = modal.querySelector("[data-cm-logout-cancel]");
+    const confirmButton = modal.querySelector("[data-cm-logout-confirm]");
+    const fallbackRedirect = "../../MBClub/LoginMB/login.html";
+    let redirectTarget = fallbackRedirect;
+    let lastActiveElement = null;
+
+    const closeModal = () => {
+      modal.hidden = true;
+      document.body.classList.remove("cm-modal-open");
+
+      if (lastActiveElement instanceof HTMLElement) {
+        lastActiveElement.focus();
+      }
+    };
+
+    const openModal = (trigger) => {
+      redirectTarget = trigger.getAttribute("data-cm-logout-redirect") || fallbackRedirect;
+      lastActiveElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      modal.hidden = false;
+      document.body.classList.add("cm-modal-open");
+      window.requestAnimationFrame(() => {
+        if (cancelButton instanceof HTMLButtonElement) {
+          cancelButton.focus();
+        }
+      });
+    };
+
+    logoutTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        openModal(trigger);
+      });
+    });
+
+    closeButton?.addEventListener("click", closeModal);
+    cancelButton?.addEventListener("click", closeModal);
+    confirmButton?.addEventListener("click", () => {
+      closeModal();
+      window.location.href = redirectTarget;
+    });
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !modal.hidden) {
+        closeModal();
+      }
+    });
+  }
+
+  function ensureLogoutModal() {
+    const existingModal = document.querySelector("[data-cm-modal='logout']");
+    if (existingModal instanceof HTMLElement) {
+      return existingModal;
+    }
+
+    const modal = document.createElement("div");
+    modal.className = "cm-modal-backdrop";
+    modal.setAttribute("data-cm-modal", "logout");
+    modal.hidden = true;
+    modal.innerHTML = `
+      <div class="cm-modal" role="dialog" aria-modal="true" aria-labelledby="cm-logout-title" aria-describedby="cm-logout-desc">
+        <header class="cm-modal__head">
+          <h2 id="cm-logout-title" class="cm-modal__title">Cerrar sesión</h2>
+          <button class="cm-modal__close" type="button" aria-label="Cerrar modal" data-cm-logout-close>
+            <i class="bi bi-x-lg" aria-hidden="true"></i>
+          </button>
+        </header>
+        <p id="cm-logout-desc" class="cm-modal__desc">¿Seguro que deseas cerrar tu sesión? Se cerrará tu acceso actual al backoffice.</p>
+        <div class="cm-modal__actions">
+          <button class="cm-button cm-button--secondary" type="button" data-cm-logout-cancel>Cancelar</button>
+          <button class="cm-button cm-button--primary" type="button" data-cm-logout-confirm>Cerrar sesión</button>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+    return modal;
+  }
+
+  function initProfilePhotoUpload() {
+    const inputs = Array.from(document.querySelectorAll("[data-cm-profile-photo-input]"));
+    if (!inputs.length) {
+      return;
+    }
+
+    const avatar = document.querySelector("[data-cm-profile-avatar]");
+    const initials = avatar?.querySelector("[data-cm-profile-initials]");
+    let objectUrl = "";
+
+    inputs.forEach((input) => {
+      if (!(input instanceof HTMLInputElement)) {
+        return;
+      }
+
+      input.addEventListener("change", () => {
+        const file = input.files?.[0];
+
+        if (!(file instanceof File)) {
+          return;
+        }
+
+        if (!file.type.startsWith("image/")) {
+          return;
+        }
+
+        if (objectUrl) {
+          URL.revokeObjectURL(objectUrl);
+        }
+        objectUrl = URL.createObjectURL(file);
+
+        if (avatar instanceof HTMLElement) {
+          avatar.classList.add("cm-profile-avatar--image");
+          avatar.style.backgroundImage = `url("${objectUrl}")`;
+        }
+
+        if (initials instanceof HTMLElement) {
+          initials.hidden = true;
+        }
+      });
+    });
+  }
+
   function initCurrentNav() {
     const links = document.querySelectorAll("[data-cm-nav]");
     if (!links.length) {
@@ -69,6 +301,8 @@
     walletModules.forEach((module) => {
       const actions = Array.from(module.querySelectorAll("[data-cm-wallet-action]"));
       const panels = Array.from(module.querySelectorAll("[data-cm-wallet-panel]"));
+      const depositAction = actions.find((action) => action.getAttribute("data-cm-wallet-target") === "deposito");
+      const depositLabel = depositAction?.querySelector(".cm-wallet-action__label");
 
       if (!actions.length || !panels.length) {
         return;
@@ -108,6 +342,10 @@
           panel.classList.toggle("cm-is-active", isActive);
           panel.hidden = !isActive;
         });
+
+        if (depositLabel instanceof HTMLElement) {
+          depositLabel.textContent = target === "deposito" ? "Depositar a cartera" : "Depositar";
+        }
       }
     });
   }
@@ -489,10 +727,20 @@
     forms.forEach((form) => {
       const fields = form.querySelectorAll("input, select, textarea");
       const message = form.querySelector("[data-cm-form-message]");
+      const invalidText = form.getAttribute("data-cm-invalid-message") || "Verifica los campos requeridos antes de continuar.";
+      const successText = form.getAttribute("data-cm-success-message") || "Formulario validado correctamente (demo sin backend).";
 
       fields.forEach((field) => {
-        const eventName = field instanceof HTMLSelectElement ? "change" : "input";
-        field.addEventListener(eventName, () => validateField(field));
+        const eventName =
+          field instanceof HTMLSelectElement ||
+          (field instanceof HTMLInputElement && (field.type === "checkbox" || field.type === "radio" || field.type === "file"))
+            ? "change"
+            : "input";
+
+        field.addEventListener(eventName, () => {
+          validateField(field);
+          revalidateRelatedFields(form, field);
+        });
       });
 
       form.addEventListener("submit", (event) => {
@@ -508,19 +756,49 @@
         if (!isValid) {
           if (message) {
             message.classList.remove("cm-is-success");
-            message.textContent = "Verifica los campos requeridos antes de continuar.";
+            message.textContent = invalidText;
           }
           return;
         }
 
         if (message) {
           message.classList.add("cm-is-success");
-          message.textContent = "Formulario validado correctamente (demo sin backend).";
+          message.textContent = successText;
         }
 
-        form.reset();
+        if (!form.hasAttribute("data-cm-no-reset")) {
+          form.reset();
+          clearFieldStates(fields);
+        }
       });
     });
+
+    function revalidateRelatedFields(formElement, changedField) {
+      const fieldId = changedField.getAttribute("id");
+      if (!fieldId) {
+        return;
+      }
+
+      const relatedFields = formElement.querySelectorAll(`[data-cm-match="${fieldId}"]`);
+      relatedFields.forEach((field) => validateField(field));
+    }
+
+    function clearFieldStates(fieldsList) {
+      fieldsList.forEach((field) => {
+        if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement)) {
+          return;
+        }
+
+        field.classList.remove("cm-is-invalid");
+        field.setAttribute("aria-invalid", "false");
+
+        const errorId = field.getAttribute("data-cm-error");
+        const errorElement = errorId ? document.getElementById(errorId) : null;
+        if (errorElement) {
+          errorElement.textContent = "";
+        }
+      });
+    }
   }
 
   function validateField(field) {
@@ -533,12 +811,16 @@
 
     let isValid = true;
     let message = "";
+    const inputValue = field.value;
+    const textValue = field instanceof HTMLInputElement && field.type === "password" ? inputValue : inputValue.trim();
 
     if (field.hasAttribute("required")) {
       if (field instanceof HTMLInputElement && field.type === "checkbox") {
         isValid = field.checked;
+      } else if (field instanceof HTMLInputElement && field.type === "file") {
+        isValid = Boolean(field.files && field.files.length > 0);
       } else {
-        isValid = field.value.trim().length > 0;
+        isValid = textValue.length > 0;
       }
 
       if (!isValid) {
@@ -551,6 +833,64 @@
       if (!isEmailValid) {
         isValid = false;
         message = "Ingresa un correo válido.";
+      }
+    }
+
+    if (isValid && field instanceof HTMLInputElement && field.type === "file") {
+      const file = field.files?.[0];
+      if (file) {
+        const allowedFileTypes = (field.getAttribute("data-cm-file-types") || "")
+          .split(",")
+          .map((item) => item.trim())
+          .filter(Boolean);
+        const maxFileSize = Number(field.getAttribute("data-cm-file-max-size") || 0);
+
+        if (allowedFileTypes.length && !allowedFileTypes.includes(file.type)) {
+          isValid = false;
+          message = field.getAttribute("data-cm-file-type-message") || "El formato del archivo no es válido.";
+        } else if (maxFileSize > 0 && file.size > maxFileSize) {
+          isValid = false;
+          message = field.getAttribute("data-cm-file-size-message") || "El archivo excede el tamaño permitido.";
+        }
+      }
+    }
+
+    if (isValid && textValue.length > 0 && field.hasAttribute("pattern")) {
+      const patternValue = field.getAttribute("pattern") || "";
+      try {
+        const regex = new RegExp(patternValue);
+        if (!regex.test(textValue)) {
+          isValid = false;
+          message = field.getAttribute("data-cm-pattern-message") || "El formato ingresado no es válido.";
+        }
+      } catch (error) {
+        isValid = false;
+        message = "No se pudo validar este campo.";
+      }
+    }
+
+    if (
+      isValid &&
+      field instanceof HTMLInputElement &&
+      field.type !== "file" &&
+      field.minLength > 0 &&
+      textValue.length > 0 &&
+      textValue.length < field.minLength
+    ) {
+      isValid = false;
+      message = field.getAttribute("data-cm-minlength-message") || `Debe contener al menos ${field.minLength} caracteres.`;
+    }
+
+    if (isValid && field.dataset.cmMatch) {
+      const targetField = document.getElementById(field.dataset.cmMatch);
+      const targetValue =
+        targetField instanceof HTMLInputElement || targetField instanceof HTMLTextAreaElement || targetField instanceof HTMLSelectElement
+          ? targetField.value
+          : "";
+
+      if (inputValue !== targetValue) {
+        isValid = false;
+        message = field.getAttribute("data-cm-match-message") || "Los campos no coinciden.";
       }
     }
 
