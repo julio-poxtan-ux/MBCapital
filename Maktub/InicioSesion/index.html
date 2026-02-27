@@ -1,99 +1,102 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onboarding Maktub | Bienvenido</title>
+    <meta
+      name="description"
+      content="Inicio del onboarding de Maktub para creación de cuenta."
+    />
+    <meta name="theme-color" content="#001323" />
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Onboarding Maktub | Crear Cuenta</title>
-  <meta name="description" content="Crea tu cuenta de Maktub en segundos con una experiencia de onboarding segura, clara y optimizada para desktop, tablet y mobile.">
-  <meta name="robots" content="index,follow">
-  <meta name="theme-color" content="#002f4f">
-  <meta property="og:title" content="Onboarding Maktub | Crear Cuenta">
-  <meta property="og:description" content="Registro de cuenta Maktub.">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="es_MX">
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script defer src="js/onboarding.js"></script>
+  </head>
+  <body class="onb-page">
+    <a class="onb-skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/main.css">
-</head>
+    <div class="onb-bg-bubbles" aria-hidden="true">
+      <img src="assets/img/esferas.png" alt="" decoding="async" fetchpriority="high" />
+    </div>
 
-<body class="onb-page">
-  <a class="onb-skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+    <header class="onb-topbar">
+      <img class="onb-logo" src="assets/figma/logotipo.svg" alt="Logotipo Maktub" decoding="async" />
+    </header>
 
-  <div class="onb-page__bg" aria-hidden="true">
-    <img class="onb-page__bg-spheres" src="assets/figma/esferas.png" alt="">
-  </div>
+    <main id="contenido-principal" class="onb-main">
+      <section class="onb-card" aria-labelledby="onboarding-title">
+        <form id="onboarding-form" class="onb-form" novalidate>
+          <div class="onb-heading">
+            <h1 id="onboarding-title" class="onb-title">¡Bienvenido!</h1>
+            <p class="onb-subtitle">Completa los siguientes pasos para crear tu cuenta.</p>
+          </div>
 
-  <header class="onb-topbar" data-node-id="135:190">
-    <a class="onb-pill-back" href="../index.html" aria-label="Volver al inicio">
-      <img src="assets/figma/4917ff54a132843dc32f669cb3a92470ba94f8dc.svg" alt="" aria-hidden="true">
-      <span class="onb-pill-back__label">Volver al inicio</span>
-    </a>
+          <div class="onb-fields">
+            <div class="onb-field">
+              <label for="full-name" class="onb-field__label">Nombre completo</label>
+              <input
+                id="full-name"
+                name="fullName"
+                class="onb-field__control"
+                type="text"
+                placeholder="Nombre completo"
+                autocomplete="name"
+                aria-describedby="full-name-error"
+                required
+              />
+              <p id="full-name-error" class="onb-field__error" role="alert"></p>
+            </div>
 
-    <a class="onb-logo-link" href="../index.html" aria-label="Ir al inicio de Maktub">
-      <img src="assets/figma/logo.svg" alt="Logotipo Maktub" width="80"
-        height="91">
-    </a>
-  </header>
-
-  <main id="contenido-principal" class="onb-main">
-    <section class="onb-card" aria-labelledby="onb-title" data-node-id="142:362">
-      <div class="onb-card__body">
-        <form class="onb-form" id="signup-form" novalidate>
-          <div class="onb-form__main">
-            <header class="onb-card__header">
-              <h1 id="onb-title" class="onb-title">¡Bienvenido!</h1>
-              <p class="onb-subtitle">Completa los siguientes pasos para crear tu cuenta.</p>
-            </header>
-
-            <div class="onb-form__fields">
-              <div class="onb-field onb-field--active" data-field="fullName">
-                <label class="onb-field__label" for="full-name">Nombre completo</label>
-                <div class="onb-field__control-wrap">
-                  <input class="onb-field__input" id="full-name" name="fullName" type="text" autocomplete="name"
-                    placeholder="Nombre completo" required aria-required="true" aria-describedby="full-name-error">
-                </div>
-                <p class="onb-field__error visually-hidden" id="full-name-error" role="alert">Ingresa tu nombre
-                  completo para continuar.</p>
-              </div>
-
-              <div class="onb-field onb-field--error" data-field="email">
-                <label class="onb-field__label" for="email">Correo electrónico</label>
-                <div class="onb-field__control-wrap">
-                  <input class="onb-field__input" id="email" name="email" type="email" autocomplete="email"
-                    placeholder="Ingresa tu correo electrónico" required aria-required="true"
-                    aria-describedby="email-error" aria-invalid="true">
-                </div>
-                <p class="onb-field__error" id="email-error" role="alert">El correo el necesario para tu registro</p>
-              </div>
+            <div class="onb-field">
+              <label for="email" class="onb-field__label">Correo electrónico</label>
+              <input
+                id="email"
+                name="email"
+                class="onb-field__control"
+                type="email"
+                placeholder="Ingresa tu correo electrónico"
+                autocomplete="email"
+                aria-describedby="email-error"
+                required
+              />
+              <p id="email-error" class="onb-field__error" role="alert"></p>
             </div>
           </div>
 
-          <div class="onb-checkbox-wrap">
-            <div class="onb-checkbox" data-node-id="142:332">
-              <input class="onb-checkbox__input" type="checkbox" id="terms" name="terms" required
-                aria-required="true" aria-describedby="terms-error">
-              <label class="onb-checkbox__label" for="terms">Leí y estoy de acuerdo con <a class="onb-checkbox__link"
-                  href="#" aria-label="Leer términos y condiciones">Términos y condiciones</a>.</label>
-            </div>
-            <p class="onb-checkbox__error visually-hidden" id="terms-error" role="alert">Debes aceptar términos y
-              condiciones para continuar.</p>
+          <div class="onb-terms">
+            <input
+              id="terms"
+              name="terms"
+              class="onb-terms__checkbox"
+              type="checkbox"
+              aria-describedby="terms-error"
+              required
+            />
+            <label for="terms" class="onb-terms__label">
+              Leí y estoy de acuerdo con
+              <a href="#" class="onb-terms__link">Términos y condiciones</a>.
+            </label>
           </div>
+          <p id="terms-error" class="onb-field__error" role="alert"></p>
 
-          <button class="onb-button" id="continue-btn" type="submit" disabled aria-disabled="true">Continuar</button>
+          <button
+            id="continue-btn"
+            type="submit"
+            class="onb-button"
+            disabled
+            aria-disabled="true"
+          >
+            Continuar
+          </button>
+
+          <p class="onb-login-prompt">
+            <span>¿Ya tienes cuenta?</span>
+            <a href="#" class="onb-login-prompt__cta">Inicia sesión</a>
+          </p>
         </form>
-      </div>
-    </section>
-  </main>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/onboarding.js"></script>
-</body>
-
+      </section>
+    </main>
+  </body>
 </html>

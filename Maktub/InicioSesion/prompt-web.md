@@ -20,7 +20,7 @@ Debes pensar siempre en:
 
 ---
 
-# 2️⃣ Contexto del proyecto
+# Contexto del proyecto
 
 - Nombre del proyecto: [Onboarding - Maktub]
 - Tipo: Registro, inicio de sesión, compra de membresía, confirmación, y contraseñas.
@@ -30,7 +30,7 @@ Debes pensar siempre en:
 
 ---
 
-# 3️⃣ Objetivo principal
+# Objetivo principal
 
 - Pixel-perfect respecto al diseño
 - 100% responsive
@@ -41,22 +41,22 @@ Debes pensar siempre en:
 
 ---
 
-# 4️⃣ Stack técnico
+# Stack técnico
 
 - HTML5 semántico
 - CSS (Modular / BEM / Utility-first)
-- Bootstrap 5.3.7
-- JavaScript Vanilla
+- Bootstrap 5.3.8 utiliza sus clases para flex, grid y responsive
+- JavaScript Vanilla archivo guardado en assets
 - Librerías externas documentadas
 - Metadatos SEO
 
 ---
 
-# 5️⃣ Reglas de UX obligatorias
+# Reglas de UX obligatorias
 
 ## 🔹 Jerarquía visual
-- Uso correcto de heading acuerdo a variables
-- Escala tipográfica acuerdo a variables
+- Uso correcto de heading acuerdo a variables de figma
+- Escala tipográfica acuerdo a variables de figma
 - Contrastes correctos
 - Uso estratégico de whitespace
 
@@ -68,10 +68,11 @@ Debes pensar siempre en:
 - Uso de ARIA cuando sea necesario
 - Contraste mínimo 4.5:1
 
+
 ## 🔹 Usabilidad
 - Estados hover, active, focus y disabled
 - Feedback inmediato en acciones
-- Validaciones claras
+- Validaciones claras en inputs
 - Mensajes de error específicos
 - Microcopy claro y directo
 
@@ -83,21 +84,23 @@ Debes pensar siempre en:
 
 ---
 
-# 6️⃣ Reglas de desarrollo frontend
+# Reglas de desarrollo frontend
 
 ## 🔹 Arquitectura
 - Componentes reutilizables
 - Separación clara de responsabilidades
 - CSS modular
+- inicio de las clases con mk-
 - Evitar código duplicado
 - Naming consistente
+- crear un root del proyecto
 
 ## 🔹 Buenas prácticas
 - No inline styles
 - No usar !important innecesariamente
 - Uso de variables CSS para tokens
 - Organización por carpetas clara
-
+- iconos de figma guardados en assets o convertir en SVG 
 
 # 📌 Resultado esperado
 
@@ -106,4 +109,29 @@ Debes pensar siempre en:
 - Está optimizado
 - Está documentado
 - Está validado por QA
-- Está listo para escalar
+- Está listo para escalar con otras paginas debe utilizar el mismo fondo y mismo header
+
+#  Entregables
+- Proyecto completo listo para ejecutar
+- Código limpio y claro
+- UI Kit en html de los componentes utilizados
+- README con:
+  - Cómo ejecutar el proyecto
+  - Estructura
+  - Decisiones técnicas
+
+
+# Estructura de archivos obligatoria
+
+/project
+├── index.html
+|
+├── css/
+│   ├── tokens.css
+│   └── styles.css
+├── js/
+│   └── main.js
+├── assets/
+│   ├── img/
+│   └── icons/
+└── README.md

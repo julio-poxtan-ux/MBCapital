@@ -1,76 +1,46 @@
 :root {
-  --onb-font-primary: "Satoshi", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  --onb-font-secondary: "Roboto", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-primary: "Satoshi", "Segoe UI", sans-serif;
 
-  --onb-color-white: #ffffff;
-  --onb-color-primary: #00a7e4;
-  --onb-color-primary-soft: #c1e7fe;
-  --onb-color-background-start: #000000;
-  --onb-color-background-end: #004169;
-  --onb-color-card: rgba(0, 167, 228, 0.05);
-  --onb-color-card-border: rgba(200, 207, 218, 0.35);
-  --onb-color-back-bg: #000f22;
-  --onb-color-back-border: #517dac;
+  --color-bg-start: #000000;
+  --color-bg-end: #004169;
 
-  --onb-color-field-bg: rgba(255, 255, 255, 0.1);
-  --onb-color-field-border: #c8cfda;
-  --onb-color-field-text: #f6f7f9;
-  --onb-color-field-placeholder: #7687a3;
-  --onb-color-field-placeholder-error: #7a7a7a;
+  --color-white: #ffffff;
+  --color-gray-50: #f6f7f9;
+  --color-gray-300: #c8cfda;
+  --color-gray-600: #7687a3;
+  --color-secondary-3: #c1e7fe;
+  --color-primary: #00a7e4;
+  --color-primary-700: #005c7e;
+  --color-input-bg: #1b1b1b;
+  --color-panel: rgba(0, 167, 228, 0.1);
 
-  --onb-color-error-border: #ff5c63;
-  --onb-color-error-bg: #1b1b1b;
-  --onb-color-error-chip-bg: #450407;
-  --onb-color-error-chip-text: #ff8d94;
+  --gradient-hero: linear-gradient(90deg, #ffffff 0%, #00a7e4 100%);
+  --gradient-button-disabled: linear-gradient(
+    90deg,
+    rgba(0, 167, 228, 0.5) 4.712%,
+    rgba(22, 22, 24, 0.5) 55.607%
+  );
+  --gradient-button-enabled: linear-gradient(
+    90deg,
+    rgba(0, 167, 228, 0.95) 4.712%,
+    rgba(0, 90, 130, 0.95) 55.607%
+  );
 
-  --onb-color-checkbox-bg: #005c7e;
-  --onb-color-checkbox-border: #7687a3;
+  --shadow-card-outer: 0 6px 6.8px rgba(0, 0, 0, 0.25);
+  --shadow-card-inner: inset 0 4px 5.9px rgba(0, 0, 0, 0.28);
+  --shadow-input-inner: inset 0 5px 8px rgba(0, 0, 0, 0.4);
+  --shadow-checkbox-inner: inset 0 10px 10px rgba(0, 0, 0, 0.25);
+  --shadow-focus: 0 0 0 3px rgba(0, 167, 228, 0.35);
 
-  --onb-color-button-end: #161618;
-  --onb-color-button-disabled-text: rgba(255, 255, 255, 0.29);
+  --radius-card: 52px;
+  --radius-input: 8px;
+  --radius-button: 12px;
+  --radius-checkbox: 5px;
 
-  --onb-shadow-card-inset: inset 0 4px 5.9px rgba(0, 0, 0, 0.28);
-  --onb-shadow-input-inset: inset 0 5px 8px rgba(0, 0, 0, 0.4);
-  --onb-shadow-checkbox-inset: inset 0 10px 10px rgba(0, 0, 0, 0.25);
-
-  --onb-radius-card: 52px;
-  --onb-radius-pill: 9999px;
-  --onb-radius-field: 8px;
-  --onb-radius-checkbox: 5px;
-  --onb-radius-button: 12px;
-  --onb-radius-chip: 6px;
-
-  --onb-space-2: 8px;
-  --onb-space-3: 12px;
-  --onb-space-4: 16px;
-  --onb-space-6: 24px;
-  --onb-space-8: 32px;
-  --onb-space-12: 48px;
-  --onb-space-16: 64px;
-
-  --onb-card-width: 600px;
-  --onb-card-height: 704px;
-  --onb-card-step2-width: 793px;
-  --onb-card-step2-height: 812px;
-  --onb-card-step2-content-width: 697px;
-  --onb-topbar-width: 1270px;
-  --onb-background-width: 1216.731px;
-  --onb-background-ratio: 1216.731 / 946.54;
-  --onb-background-top: 66px;
-
-  --onb-title-size: 52px;
-  --onb-title-line: 64px;
-  --onb-subtitle-size: 20px;
-  --onb-subtitle-line: 28px;
-
-  --onb-label-size: 16px;
-  --onb-label-line: 20px;
-  --onb-input-size: 18px;
-  --onb-input-line: 24px;
-  --onb-error-size: 14px;
-  --onb-error-line: 16px;
-  --onb-body-size: 16px;
-  --onb-body-line: 24px;
-  --onb-back-size: 20px;
-  --onb-back-line: 24px;
+  --space-card: 48px;
+  --space-2xs: 8px;
+  --space-xs: 11px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
 }
