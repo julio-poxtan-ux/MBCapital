@@ -1,0 +1,11 @@
+<svg width="180" height="52" viewBox="0 0 180 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lg" x1="8" y1="8" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A1F2FF"/>
+      <stop offset="1" stop-color="#09B8FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="180" height="52" rx="10" fill="#050C18"/>
+  <path d="M15 34V18h5l6 8 6-8h5v16h-4V24l-7 9-7-9v10h-4z" fill="url(#lg)"/>
+  <text x="62" y="33" fill="#E8F7FF" font-family="Segoe UI, Arial" font-size="24" letter-spacing="0.18em">MKB</text>
+</svg>
